@@ -22,7 +22,6 @@ namespace TP2_Grupo4
             this.usuarios = new List<Usuario>();
             this.reservas = new List<Reserva>();
             this.usuarioLogeado = null;
-
             this.cargarDatosDeLaBaseDeDatos();
         }
 
@@ -272,7 +271,7 @@ namespace TP2_Grupo4
                 try
                 {
                     connection.Open();
-                    MySqlCommand command = new MySqlCommand("SELECT maximaCapacidad FROM alojamientos a WHERE a.codigo = " + codigoAlojamiento, connection);
+                    MySqlCommand command = new MySqlCommand("SELECT maximaCapacidad FROM alojamientos a WHERE a.codigo = @codigoAlojamiento", connection);
                     MySqlDataReader reader = command.ExecuteReader();
 
                     while (reader.Read())
@@ -297,6 +296,7 @@ namespace TP2_Grupo4
                 return false;
 
             }
+        }
 
             #endregion
 
@@ -934,4 +934,4 @@ namespace TP2_Grupo4
 
         }
     } 
-}
+
