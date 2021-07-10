@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <Compile Update="Views\Admin\VistaAdminAlojamiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Admin\VistaAdminCabanias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Admin\VistaAdminHoteles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Admin\VistaAdminReservas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Admin\VistaAdminUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Admin\VistaDashboardAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Cliente\VistaAlojamientosCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Cliente\VistaBuscadorCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Cliente\VistaDashboardCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Cliente\VistaReservasCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\VistaHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\VistaLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\VistaRecuperar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\VistaRegistrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>

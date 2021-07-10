@@ -281,7 +281,7 @@ namespace TP2_Grupo4.Views
             int habitaciones = Int32.Parse(comboBoxHabitaciones.Text);
             int banios = Int32.Parse(comboBoxBanios.Text);
 
-            if(this.agencia.GetAgencia().ModificarAlojamiento(new Cabania(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioDia, habitaciones, banios)))
+            if(this.agencia.ModificarAlojamiento(new Cabania(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioDia, habitaciones, banios)))
             {
                 MessageBox.Show("Cabaña modificada correctamente");
             }

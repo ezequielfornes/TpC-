@@ -34,8 +34,7 @@ namespace TP2_Grupo4.Models
         {
             this.alojamientos.Add(alojamiento);
             this.cantidadDeAlojamientos++;
-            result = true;
-            return result;
+            return true;
         }
         public bool ModificarAlojamiento(Alojamiento alojamiento)
         {
@@ -151,7 +150,7 @@ namespace TP2_Grupo4.Models
         #endregion
 
 
-        /*#region METODOS COMPLEMENTARIOS
+        #region METODOS COMPLEMENTARIOS
         public List<List<String>> DatosDeAlojamientosParaLasVistas(String tipoDeUsuario)
         {
             List<List<String>> alojamientos = new List<List<string>>();
@@ -300,7 +299,7 @@ namespace TP2_Grupo4.Models
             this.cantidadDeAlojamientos = hoteles.Count + cabanias.Count;
         }
 
-        #endregion*/
+        #endregion
 
 
         /* GETTER */
