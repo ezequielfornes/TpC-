@@ -33,13 +33,13 @@ namespace TP2_Grupo4
         }
         //Listo de aca para abajo
         #region METODOS PARA LOS ALOJAMIENTOS
-        public bool AgregarHotel(int codigo, String ciudad, String barrio, int estrellas, int cantPersonas, bool tv, double precioPersonas)
+        public bool AgregarHotel(int codigo, String ciudad, String barrio, int estrellas, int cantPersonas, bool tv, double precioPersonas, int maximaCapacidad)
         {
-            return AgregarAlojamiento(new Hotel(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPersonas));
+            return AgregarAlojamiento(new Hotel(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPersonas, maximaCapacidad));
         }
-        public bool ModificarHotel(int codigo, String ciudad, String barrio, int estrellas, int cantPersonas, bool tv, double precioPersonas)
+        public bool ModificarHotel(int codigo, String ciudad, String barrio, int estrellas, int cantPersonas, bool tv, double precioPersonas, int maximaCapacidad)
         {
-            return ModificarAlojamiento(new Hotel(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPersonas));
+            return ModificarAlojamiento(new Hotel(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPersonas, maximaCapacidad));
         }
         public bool AgregarCabania(int codigo, String ciudad, String barrio, int estrellas, int cantPersonas, bool tv, double precioPorDia, int habitaciones, int banios)
         {
@@ -213,7 +213,8 @@ namespace TP2_Grupo4
                                     reader.GetInt32(3),
                                     reader.GetInt32(4),
                                     reader.GetBoolean(5),
-                                    reader.GetDouble(6)
+                                    reader.GetDouble(6),
+                                    reader.GetInt32(7)
                                 ));
                     }
 

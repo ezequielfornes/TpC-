@@ -14,7 +14,7 @@ namespace TP2_Grupo4.Models
         private int banios;
 
         public Cabania(int codigo, string ciudad, string barrio, int estrellas, int cantidadDePersonas, bool tv, double precioPorDia, int habitaciones, int banios) : 
-            base(codigo, ciudad, barrio, estrellas, cantidadDePersonas, tv)
+            base(codigo, ciudad, barrio, estrellas, cantidadDePersonas, tv, 1000)
         {
             this.SetPrecioPorDia(precioPorDia);
             this.SetHabitaciones(habitaciones);

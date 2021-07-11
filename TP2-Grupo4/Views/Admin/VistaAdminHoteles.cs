@@ -89,6 +89,7 @@ namespace TP2_Grupo4.Views
             dgvHoteles.Columns.Add(checkTV);
             dgvHoteles.Columns.Add("PRECIO_X_PERSONA", "Precio x Persona");
             dgvHoteles.Columns.Add("PRECIO", "Precio Total");
+            dgvHoteles.Columns.Add("PLAZAS_DISPONIBLES", "Plazas Disponibles");
             dgvHoteles.Columns.Add(btnModificar);
             dgvHoteles.Columns.Add(btnBorrar);
 
@@ -126,6 +127,7 @@ namespace TP2_Grupo4.Views
             comboBoxCantPersonas.Text = dgvHoteles.CurrentRow.Cells[4].Value.ToString();
             checkBoxTv.Checked = bool.Parse(dgvHoteles.CurrentRow.Cells[5].Value.ToString());
             txtPrecio.Text = dgvHoteles.CurrentRow.Cells[6].Value.ToString();
+            comboBoxPlazasDisponibles.Text = dgvHoteles.CurrentRow.Cells[7].Value.ToString();
         }
 
         // Resetear campos
@@ -216,6 +218,7 @@ namespace TP2_Grupo4.Views
             int estrellas = Int32.Parse(comboBoxEstrellas.Text);
             int cantPersonas = Int32.Parse(comboBoxCantPersonas.Text);
             bool tv = checkBoxTv.Checked;
+            int plazasDisponibles = Int32.Parse(comboBoxPlazasDisponibles.Text);
             try
             {
                 precioPersonas = double.Parse(txtPrecio.Text);
@@ -225,7 +228,7 @@ namespace TP2_Grupo4.Views
                 MessageBox.Show("Ingresaste un valor alfabetico en el precio, ingresa un valor numérico");
             }
 
-            if (this.agencia.ModificarHotel(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPersonas))
+            if (this.agencia.ModificarHotel(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPersonas, plazasDisponibles))
             {
                 MessageBox.Show("Hotel modificado correctamente");
             }
@@ -259,6 +262,7 @@ namespace TP2_Grupo4.Views
             int estrellas = Int32.Parse(comboBoxEstrellas.Text);
             int cantPersonas = Int32.Parse(comboBoxCantPersonas.Text);
             bool tv = checkBoxTv.Checked;
+            int plazasDisponibles = Int32.Parse(comboBoxPlazasDisponibles.Text);
 
             try
             {
@@ -270,7 +274,7 @@ namespace TP2_Grupo4.Views
             }
 
 
-            if ( !this.agencia.ExisteAlojamiento(codigo) && this.agencia.AgregarHotel(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPersonas) )
+            if ( !this.agencia.ExisteAlojamiento(codigo) && this.agencia.AgregarHotel(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPersonas, plazasDisponibles) )
             {
                 MessageBox.Show("El Hotel fue agregado correctamente.");
             }

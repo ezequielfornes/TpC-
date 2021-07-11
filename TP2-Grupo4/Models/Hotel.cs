@@ -10,8 +10,8 @@ namespace TP2_Grupo4.Models
         public const int CANTIDAD_DE_ATRIBUTOS = 7;
 
         private double precioPorPersona;
-        public Hotel(int codigo, string ciudad, string barrio, int estrellas, int cantidadDePersonas, bool tv, double precioPorPersona) : 
-            base(codigo, ciudad, barrio, estrellas, cantidadDePersonas, tv)
+        public Hotel(int codigo, string ciudad, string barrio, int estrellas, int cantidadDePersonas, bool tv, double precioPorPersona, int maximaCapacidad) : 
+            base(codigo, ciudad, barrio, estrellas, cantidadDePersonas, tv, maximaCapacidad)
         {
             this.SetPrecioPorPersona(precioPorPersona);
         }
@@ -33,7 +33,8 @@ namespace TP2_Grupo4.Models
                 int.Parse(hotelArray[3]),
                 int.Parse(hotelArray[4]),
                 bool.Parse(hotelArray[5]),
-                double.Parse(hotelArray[6])
+                double.Parse(hotelArray[6]),
+                int.Parse(hotelArray[7])
                 );
         }
         /*public static List<Hotel> GetAll()

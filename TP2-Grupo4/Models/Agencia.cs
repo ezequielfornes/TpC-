@@ -158,7 +158,7 @@ namespace TP2_Grupo4.Models
             if (tipoDeUsuario == "admin")
             {
                 foreach (Alojamiento alojamiento in this.alojamientos)
-                    alojamientos.Add(new List<String>(){
+                        alojamientos.Add(new List<String>(){
                         alojamiento.GetCodigo().ToString(),
                         alojamiento.GetCiudad(),
                         alojamiento.GetBarrio(),
@@ -166,24 +166,28 @@ namespace TP2_Grupo4.Models
                         alojamiento.GetCantidadDePersonas().ToString(),
                         alojamiento.GetTv() ? "si" : "no",
                         alojamiento.PrecioTotalDelAlojamiento().ToString(),
-                    });
+                        alojamiento.GetPlazasDisponibles().ToString()
+            });
 
             }
             else if (tipoDeUsuario == "user")
             {
                 foreach (Alojamiento alojamiento in this.alojamientos)
                 {
-                    alojamientos.Add(new List<String>(){
+                    if (alojamiento.GetPlazasDisponibles() >=1) {
+                        alojamientos.Add(new List<String>(){
                         alojamiento is Hotel ? "hotel" : "cabaña", // Tipo de alojamiento
                         alojamiento.GetCiudad(),
                         alojamiento.GetBarrio(),
                         alojamiento.GetEstrellas().ToString(),
                         alojamiento.GetCantidadDePersonas().ToString(),
                         alojamiento.GetTv() ? "si" : "no",
-                        alojamiento is Hotel ? ((Hotel)alojamiento).GetPrecioPorPersona().ToString() : ((Cabania)alojamiento).GetPrecioPorDia().ToString()
-                        
+                        alojamiento is Hotel ? ((Hotel)alojamiento).GetPrecioPorPersona().ToString() : ((Cabania)alojamiento).GetPrecioPorDia().ToString(),
+                        alojamiento.GetPlazasDisponibles().ToString()
+                    
                         //alojamiento.PrecioTotalDelAlojamiento().ToString(),
-                    });
+                        });
+                    }
                 }
             }
 
@@ -206,7 +210,8 @@ namespace TP2_Grupo4.Models
                         hotel.GetCantidadDePersonas().ToString(),
                         hotel.GetTv().ToString(),
                         hotel.GetPrecioPorPersona().ToString(),
-                        hotel.PrecioTotalDelAlojamiento().ToString()
+                        hotel.PrecioTotalDelAlojamiento().ToString(),
+                        hotel.GetPlazasDisponibles().ToString()
                     });
 
                 System.Diagnostics.Debug.WriteLine(alojamientos);
@@ -224,6 +229,7 @@ namespace TP2_Grupo4.Models
                         alojamiento.GetTv().ToString(),
                         alojamiento.GetPrecioPorPersona().ToString(),
                         alojamiento.PrecioTotalDelAlojamiento().ToString(),
+                        alojamiento.GetPlazasDisponibles().ToString()
                     });
                 }
             }
@@ -249,6 +255,7 @@ namespace TP2_Grupo4.Models
                         cabania.GetHabitaciones().ToString(),
                         cabania.GetBanios().ToString(),
                         cabania.PrecioTotalDelAlojamiento().ToString(),
+                        cabania.GetPlazasDisponibles().ToString()
                     });
 
                 System.Diagnostics.Debug.WriteLine(alojamientos);
@@ -268,6 +275,7 @@ namespace TP2_Grupo4.Models
                         cabania.GetHabitaciones().ToString(),
                         cabania.GetBanios().ToString(),
                         cabania.PrecioTotalDelAlojamiento().ToString(),
+                        cabania.GetPlazasDisponibles().ToString()
                     });
                 }
             }

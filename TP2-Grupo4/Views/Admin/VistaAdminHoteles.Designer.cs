@@ -345,5 +345,6 @@ namespace TP2_Grupo4.Views
         private System.Windows.Forms.Button btnTopAgregar;
         private System.Windows.Forms.ComboBox comboBoxEstrellas;
         private System.Windows.Forms.Label laberHerrorHoteles;
+        private System.Windows.Forms.ComboBox comboBoxPlazasDisponibles;
     }
 }

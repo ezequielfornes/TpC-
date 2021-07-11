@@ -13,9 +13,9 @@ namespace TP2_Grupo4.Models
         private int estrellas;
         private int cantidadDePersonas;
         private bool tv;
-        private int maximaCapacidad;
+        private int plazasDisponibles;
 
-        public Alojamiento(int codigo, String ciudad, String barrio, int estrellas, int cantidadDePersonas, bool tv )
+        public Alojamiento(int codigo, String ciudad, String barrio, int estrellas, int cantidadDePersonas, bool tv, int plazasDisponibles)
         {
             this.setCodigo(codigo);
             this.SetCiudad(ciudad);
@@ -23,6 +23,7 @@ namespace TP2_Grupo4.Models
             this.SetEstrellas(estrellas);
             this.SetCantidadDePersonas(cantidadDePersonas);
             this.SetTv(tv);
+            this.SetPlazasDisponibles(plazasDisponibles);
         }
         
         public bool IgualCodigo(Alojamiento alojamiento)
@@ -36,7 +37,7 @@ namespace TP2_Grupo4.Models
             return Alojamiento.MINIMO_NUMERO_DE_ESTRELLAS >= estrellas && estrellas <= Alojamiento.MAXIMO_NUMERO_DE_ESTRELLAS;
         }
         public abstract double PrecioTotalDelAlojamiento();
-        
+
 
         /* ToString */
         public override string ToString()
@@ -47,7 +48,8 @@ namespace TP2_Grupo4.Models
             objetoSerializado += this.GetBarrio() + ",";
             objetoSerializado += this.GetEstrellas().ToString() + ",";
             objetoSerializado += this.GetCantidadDePersonas().ToString() + ",";
-            objetoSerializado += this.GetTv().ToString();
+            objetoSerializado += this.GetTv().ToString() + ",";
+            objetoSerializado += this.GetPlazasDisponibles().ToString();
             return objetoSerializado;
         }
 
@@ -58,7 +60,9 @@ namespace TP2_Grupo4.Models
         public int GetEstrellas(){ return this.estrellas; }
         public int GetCantidadDePersonas(){ return this.cantidadDePersonas; }
         public bool GetTv(){ return this.tv; }
-        
+        public int GetPlazasDisponibles() { return this.plazasDisponibles; }
+
+        public void SetPlazasDisponibles(int maximaCapacidad) { this.plazasDisponibles = maximaCapacidad; }
         private void setCodigo(int codigo){ this.codigo = codigo; }
         public void SetCiudad(String ciudad){ this.ciudad = ciudad; }
         public void SetBarrio(String barrio){ this.barrio = barrio; }

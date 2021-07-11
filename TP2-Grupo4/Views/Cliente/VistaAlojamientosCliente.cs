@@ -174,6 +174,7 @@ namespace TP2_Grupo4.Views
             dgvAlojamiento.Columns.Add("CantidadDePersonas", "Cantidad de Personas");
             dgvAlojamiento.Columns.Add("Tv", "TV");
             dgvAlojamiento.Columns.Add("Precio", "Precio");
+            dgvAlojamiento.Columns.Add("plazasDisponibles", "Plazas disponibles");
 
             dgvAlojamiento.Columns.Add(btnReservar);
             dgvAlojamiento.ReadOnly = false;
