@@ -272,7 +272,7 @@ namespace TP2_Grupo4
                 try
                 {
                     connection.Open();
-                    MySqlCommand command = new MySqlCommand("SELECT maximaCapacidad FROM alojamientos a WHERE a.codigo = @codigoAlojamiento", connection);
+                    MySqlCommand command = new MySqlCommand("SELECT a.maximaCapacidad FROM alojamientos a WHERE a.codigo ="+ codigoAlojamiento, connection);
                     MySqlDataReader reader = command.ExecuteReader();
 
                     while (reader.Read())
@@ -328,8 +328,14 @@ namespace TP2_Grupo4
                                 this.reservas.Add(new Reserva(UltimoIdInsertado().ToString(), fechaDesde, fechaHasta, alojamiento, usuario, precio));
                                 result = true;
                             }
-                        }
-                        catch (Exception ex)
+                            command.CommandText = "UPDATE alojamientos a SET maximaCapacidad= maximaCapacidad-@cantidadDePersonas WHERE a.codigo=@codigoAlojamiento ";
+                            command.Parameters.AddWithValue("@cantidadDePersonas", cantidadDePersonas);
+                            command.Parameters.AddWithValue("@codigoAlojamiento", codigoAlojamiento);
+                            command.ExecuteNonQuery();
+                        
+
+                    }
+                    catch (Exception ex)
                         {
                             System.Diagnostics.Debug.WriteLine(ex.ToString());
                         }
@@ -475,7 +481,7 @@ namespace TP2_Grupo4
                     if (!validarFechaDesde && !validarFechaHasta)
                         alojamientoDisponible = false;
                 }
-                return alojamientoDisponible || VerifyAvailableAccommodation(codigoDeAlojamiento, 2);
+                return alojamientoDisponible && VerifyAvailableAccommodation(codigoDeAlojamiento, 2);
                  ;
             }
             #endregion

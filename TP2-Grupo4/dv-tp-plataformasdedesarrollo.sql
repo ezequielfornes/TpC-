@@ -38,23 +38,23 @@ CREATE TABLE `alojamientos` (
   `precioPorDia` float UNSIGNED DEFAULT 0,
   `habitaciones` int(2) DEFAULT 0,
   `banios` int(2) DEFAULT 0,
-  `maximaCapacidad` int(4) DEFAULT 1000
+  `maximaCapacidad` int(4) 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `alojamientos`
 --
 
-INSERT INTO `alojamientos` (`codigo`, `ciudad`, `barrio`, `estrellas`, `cantidadDePersonas`, `tv`, `precioPorPersona`, `precioPorDia`, `habitaciones`, `banios`) VALUES
-(103301, 'rosario', 'centro', 1, 3, 1, 0, 3500, 1, 1),
-(123111, 'carlos paz', 'centro', 1, 1, 1, 4500, 0, 0, 0),
-(234432, 'buenos aires', 'sur', 2, 4, 1, 0, 4000, 2, 1),
-(315434, 'rosario', 'centro', 1, 2, 0, 1800, 0, 0, 0),
-(332131, 'carlos paz', 'norte', 2, 3, 1, 0, 6000, 2, 1),
-(523423, 'buenos aires', 'palermo', 2, 1, 1, 3000, 0, 0, 0),
-(843511, 'buenos aires', 'puerto madero', 1, 1, 1, 3500, 0, 0, 0),
-(856722, 'carlos paz', 'centro', 1, 6, 1, 0, 2400, 2, 1),
-(987789, 'carlos paz', 'sur', 1, 6, 1, 0, 2800, 1, 1);
+INSERT INTO `alojamientos` (`codigo`, `ciudad`, `barrio`, `estrellas`, `cantidadDePersonas`, `tv`, `precioPorPersona`, `precioPorDia`, `habitaciones`, `banios`,`maximaCapacidad`) VALUES
+(103301, 'rosario', 'centro', 1, 3, 1, 0, 3500, 1, 1,10),
+(123111, 'carlos paz', 'centro', 1, 1, 1, 4500, 0, 0, 0,1000),
+(234432, 'buenos aires', 'sur', 2, 4, 1, 0, 4000, 2, 1,10),
+(315434, 'rosario', 'centro', 1, 2, 0, 1800, 0, 0, 0,1000),
+(332131, 'carlos paz', 'norte', 2, 3, 1, 0, 6000, 2, 1,10),
+(523423, 'buenos aires', 'palermo', 2, 1, 1, 3000, 0, 0, 0,1000),
+(843511, 'buenos aires', 'puerto madero', 1, 1, 1, 3500, 0, 0, 0,1000),
+(856722, 'carlos paz', 'centro', 1, 6, 1, 0, 2400, 2, 1,10),
+(987789, 'carlos paz', 'sur', 1, 6, 1, 0, 2800, 1, 1,4);
 
 -- --------------------------------------------------------
 
@@ -88,6 +88,7 @@ CREATE TABLE `hoteles` (
 ,`cantidadDePersonas` int(2)
 ,`tv` tinyint(1)
 ,`precioPorPersona` float unsigned
+,`maximaCapacidad` int(4) DEFAULT 10
 );
 
 -- --------------------------------------------------------
@@ -171,7 +172,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `hoteles`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `hoteles`  AS SELECT `alojamientos`.`codigo` AS `codigo`, `alojamientos`.`ciudad` AS `ciudad`, `alojamientos`.`barrio` AS `barrio`, `alojamientos`.`estrellas` AS `estrellas`, `alojamientos`.`cantidadDePersonas` AS `cantidadDePersonas`, `alojamientos`.`tv` AS `tv`, `alojamientos`.`precioPorPersona` AS `precioPorPersona` FROM `alojamientos` WHERE `alojamientos`.`precioPorPersona` <> 0 ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `hoteles`  AS SELECT `alojamientos`.`codigo` AS `codigo`, `alojamientos`.`ciudad` AS `ciudad`, `alojamientos`.`barrio` AS `barrio`, `alojamientos`.`estrellas` AS `estrellas`, `alojamientos`.`cantidadDePersonas` AS `cantidadDePersonas`, `alojamientos`.`tv` AS `tv`, `alojamientos`.`precioPorPersona` AS `precioPorPersona`,`alojamientos`.`maximaCapacidad` AS `maximaCapacidad` FROM `alojamientos` WHERE `alojamientos`.`precioPorPersona` <> 0 ;
 
 --
 -- Índices para tablas volcadas
